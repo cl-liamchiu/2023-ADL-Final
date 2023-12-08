@@ -1,0 +1,5 @@
+.ipynb_checkpoints/
+model/
+samples_save_dir/
+__pycache__/
+tensorboard_summary/
