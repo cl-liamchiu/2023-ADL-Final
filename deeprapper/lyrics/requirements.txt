@@ -1,0 +1,6 @@
+mido
+requests
+bs4
+lxml
+pinyintokenizer
+Pinyin2Hanzi
