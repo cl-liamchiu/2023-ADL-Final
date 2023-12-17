@@ -1,6 +1,6 @@
 tqdm==4.66.1
 pypinyin==0.49.0
-# transformers==4.35.2
+transformers==4.35.2
 # tensorboard==2.15.2 maybe 2.15.1 will be okay
 jieba==0.42.1
 sentencepiece==0.1.99
@@ -17,4 +17,4 @@ fsspec==2023.9.2
 matplotlib
 huggingface_hub
 tensorboard
-transformers==4.30.2
+# transformers==4.30.2
