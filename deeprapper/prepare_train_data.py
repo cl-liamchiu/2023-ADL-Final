@@ -851,7 +851,7 @@ def prepare_lyrics(ins_path, out_path, with_beat=False, beat_mode=0):
                                         if beat_mode == 0:
                                             if l_song != 'mapped_final_with_beat.txt':
                                                 continue
-                                            l_content_path = os.path.join(l_path, 'lyric_with_beat_clean.txt')
+                                            l_content_path = os.path.join(l_path, 'lyric_with_beat.txt')
                                             l_finals_path = os.path.join(l_path, 'mapped_final_with_beat.txt')
                                         elif beat_mode == 1:
                                             if l_song != 'mapped_final_with_beat_global.txt':
@@ -869,7 +869,7 @@ def prepare_lyrics(ins_path, out_path, with_beat=False, beat_mode=0):
                                             continue
                                         # l_content_path = os.path.join(l_path, l_file_name+'_content.txt')
                                         # l_finals_path = os.path.join(l_path, l_file_name+'_mapped_finals.txt')
-                                        l_content_path = os.path.join(l_path, 'lyric_with_beat_clean.txt')
+                                        l_content_path = os.path.join(l_path, 'lyric_with_beat.txt')
                                         l_finals_path = os.path.join(l_path, 'mapped_final_with_beat.txt')
                                     if os.path.isfile(l_content_path):
                                         l_info['lyric'], l_info['lyric-reverse'], l_info['vowel'], \
