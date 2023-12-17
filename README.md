@@ -14,8 +14,8 @@ pip install -r requirements.txt
 ## Data
 Please download by gdown
 ```
-gdown https://drive.google.com/uc?id=1pHffO_PqqZUJLZHB9awhLjPYLNbcai4e
-unzip adl_final_data.zip && rm adl_final_data.zip
+gdown https://drive.google.com/uc?id=1_-wJWI5fbTqEVM8OSsHDQZ6xBWBzoaC-
+unzip lyrics.zip && rm lyrics.zip
 ```
 
 ## Prefix
