@@ -18,9 +18,6 @@ gdown https://drive.google.com/uc?id=1_-wJWI5fbTqEVM8OSsHDQZ6xBWBzoaC-
 unzip lyrics.zip && rm lyrics.zip
 ```
 
-## Prefix
-⚠️ White spaces are not allowed
-
 ## Fine-tune
 1. Ensure the singer folder is placed within the data/lyrics/lyrics_samples/raw directory to access the required data.
     ```
