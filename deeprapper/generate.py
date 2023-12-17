@@ -66,6 +66,7 @@ def main():
     parser.add_argument('--batch_size', default=1, type=int, required=False, help='batch size')
     parser.add_argument('--nsamples', default=4, type=int, required=False, help='number of samples')
     parser.add_argument('--n_ctx', default='512', type=int, required=False, help='window of context')
+    parser.add_argument('--max_sample', default=1, type=int, required=False, help='max number of sample')
     
     # path of dictionary
     parser.add_argument('--tokenizer_path', default='tokenizations/chinese_dicts.txt', type=str, required=False, help='vocabulary of tokens')
@@ -230,7 +231,10 @@ def main():
         
         # To display and save samples
         for out in outs:
+            if generated >= args.max_sample:
+                break
             generated += 1
+            
             # convert id to text tokens
             text = tokenizer.convert_ids_to_tokens(out)
             
@@ -269,6 +273,7 @@ def main():
             if args.save_samples:
                 samples_file.write(info + text + '\n' + '=' * 90 + '\n' * 2)
                 samples_file.flush()
+            
                 
     print("=" * 80)
     # close file when finish writing.

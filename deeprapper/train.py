@@ -163,6 +163,12 @@ def main():
     posed_data_path = os.path.join(tokenized_path, f'posed{reverse_str}')
     beated_data_path = os.path.join(tokenized_path, f'beated{reverse_str}')
 
+    # print(tokenized_data_path)
+    # print(finalized_data_path)
+    # print(sentenced_data_path)
+    # print(posed_data_path)
+    # print(beated_data_path)
+
     if args.tokenize:
         # prepare data
         if args.raw:

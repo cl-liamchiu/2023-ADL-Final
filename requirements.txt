@@ -1,6 +1,20 @@
 tqdm==4.66.1
 pypinyin==0.49.0
-transformers==4.35.2
-tensorboard==2.15.2
+# transformers==4.35.2
+# tensorboard==2.15.2 maybe 2.15.1 will be okay
 jieba==0.42.1
 sentencepiece==0.1.99
+gdown
+bitsandbytes==0.41.1
+peft==0.6.0
+numpy
+tqdm
+chardet
+scipy
+accelerate
+datasets==2.13.1
+fsspec==2023.9.2
+matplotlib
+huggingface_hub
+tensorboard
+transformers==4.30.2

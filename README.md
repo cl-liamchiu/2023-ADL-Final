@@ -19,4 +19,51 @@ unzip adl_final_data.zip && rm adl_final_data.zip
 ```
 
 ## Prefix
-⚠️ White space are not allowed
+⚠️ White spaces are not allowed
+
+## Fine-tune
+1. Ensure the singer folder is placed within the data/lyrics/lyrics_samples/raw directory to access the required data.
+    ```
+        Here's the hierarchical architecture of the dataset.:
+        ├── data
+        └── lyrics
+            └── lyrics_samples
+                └── raw
+                    └── singer01
+                        └── album01
+                            ├── song01
+                            │   ├── lyric_with_beat_global.txt
+                            │   └── 
+    ```
+    Note that I ignore the album hierarchy, so all songs are in the same folder.
+
+2. I've changed some files, so please remember to update the data.
+    - train.py
+    - prepare_train_data.py
+    
+
+3. Training:
+    1. you need to modify a few parameters:
+        - model_dir (output model path)
+        - pretrained_model (downloaded from original github)
+    2. (Optional)
+        - epochs
+        - batch_size
+
+    ```
+    bash train.sh
+    ```
+
+4. Generate
+    1. you need to modify a few parameters:
+        - model_dir (output model path)
+    2. (Optional)
+        - epochs
+        - batch_size
+        - prefix
+        - temp
+        - topk
+        - topp
+    ```
+    bash generate.sh
+    ```

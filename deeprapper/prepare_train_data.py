@@ -774,14 +774,21 @@ def parse_lyric(l_content_path, l_finals_path, with_beat=False, beat_mode=0):
         2 * (len(re.findall('\[S\]', lyric)) + len(re.findall('\[M\]', lyric)) + len(re.findall('\[F\]', lyric)))
     len_final = len(final.split())
     len_sentence = len(sentence.split())
-    try:
-        assert len_lyric == len_final == len_sentence
-    except Exception:
-        print(len_lyric, len_final, len_sentence)
-        print(lyric)
-        print(final)
-        print(l_content_path)
-        return
+    # try:
+    #     assert len_lyric == len_final == len_sentence
+    # except Exception:
+    #     print("len_lyric == len_final == len_sentence")
+    #     print(len_lyric, len_final, len_sentence)
+    #     print(lyric)
+    #     print(final)
+    #     print(l_content_path)
+    #     return
+
+    if len_lyric != len_final or len_lyric != len_sentence:
+        print("len_lyric != len_final != len_sentence")
+        valid = False
+    # Optionally, you can return here or perform additional actions as needed.
+
     
     if num_line > 4:
         valid = True
@@ -813,16 +820,21 @@ def prepare_lyrics(ins_path, out_path, with_beat=False, beat_mode=0):
         i = 0  # total num
         j = 0  # number of empty songs
         max_num_lines = 0
+        # print("***singer: ", os.listdir(ins_path))
+
         for s_path in os.listdir(ins_path):
+            
             l_info['singer'] = s_path
             s_path = os.path.join(ins_path, s_path)
 
+            # print("***album", os.listdir(s_path))
             if os.path.isdir(s_path):
                 # enumerate album
                 for a_path in os.listdir(s_path):
                     l_info['album'] = a_path
 
                     a_path = os.path.join(s_path, a_path)
+                    # print("***songs", os.listdir(a_path))
 
                     if os.path.isdir(a_path):
                         # enumerate songs
@@ -839,7 +851,7 @@ def prepare_lyrics(ins_path, out_path, with_beat=False, beat_mode=0):
                                         if beat_mode == 0:
                                             if l_song != 'mapped_final_with_beat.txt':
                                                 continue
-                                            l_content_path = os.path.join(l_path, 'lyric_with_beat.txt')
+                                            l_content_path = os.path.join(l_path, 'lyric_with_beat_clean.txt')
                                             l_finals_path = os.path.join(l_path, 'mapped_final_with_beat.txt')
                                         elif beat_mode == 1:
                                             if l_song != 'mapped_final_with_beat_global.txt':
@@ -857,14 +869,13 @@ def prepare_lyrics(ins_path, out_path, with_beat=False, beat_mode=0):
                                             continue
                                         # l_content_path = os.path.join(l_path, l_file_name+'_content.txt')
                                         # l_finals_path = os.path.join(l_path, l_file_name+'_mapped_finals.txt')
-                                        l_content_path = os.path.join(l_path, 'lyric_with_beat.txt')
+                                        l_content_path = os.path.join(l_path, 'lyric_with_beat_clean.txt')
                                         l_finals_path = os.path.join(l_path, 'mapped_final_with_beat.txt')
                                     if os.path.isfile(l_content_path):
                                         l_info['lyric'], l_info['lyric-reverse'], l_info['vowel'], \
                                         l_info['vowel-reverse'], l_info['sentence'], l_info['pos'], \
                                         l_info['pos-reverse'], l_info['beat'], l_info['beat-reverse'], \
                                         l_info['valid'], num_lines = parse_lyric(l_content_path, l_finals_path, with_beat, beat_mode)
-#                                         print(l_info)
                                         if max_num_lines < num_lines:
                                             max_num_lines = num_lines
 
