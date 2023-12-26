@@ -4,6 +4,9 @@ transformers==4.35.2
 # tensorboard==2.15.2 maybe 2.15.1 will be okay
 jieba==0.42.1
 sentencepiece==0.1.99
+streamlit==1.29.0
+opencc == 1.1.7
+```
 gdown
 bitsandbytes==0.41.1
 peft==0.6.0

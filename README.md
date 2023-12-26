@@ -64,3 +64,11 @@ unzip lyrics.zip && rm lyrics.zip
     ```
     bash generate.sh
     ```
+
+
+
+## Streamlit
+```
+pip install streamlit==1.29.0
+streamlit run app.py
+```
