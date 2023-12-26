@@ -7,11 +7,12 @@
 
 import argparse
 import os
+import re
 import math
 from datetime import datetime
 from utils import get_sentence_pinyin_finals, special_tokens
 from beam_search import sample_sequence, beam_search_decode_nctx, beam_search_decode
-
+from opencc import OpenCC
 
 def is_word(word):
     """check whether it is an English word."""
@@ -228,7 +229,6 @@ def main():
     for _ in range(args.nsamples):
         outs = generate(model=model, context=context, pinyin_dict=pinyin_dict, args=args, device=device)
         
-        
         # To display and save samples
         for out in outs:
             if generated >= args.max_sample:
@@ -267,15 +267,19 @@ def main():
             # print samples
             info = "=" * 40 + " SAMPLE " + str(generated) + " " + "=" * 40 + "\n"
             text = ''.join(text).replace('##', '').strip()
-            print(info + text)
+            # print(info + text)
             
             # save samples
             if args.save_samples:
-                samples_file.write(info + text + '\n' + '=' * 90 + '\n' * 2)
+                cc = OpenCC('s2twp')
+                cleaned_text = re.sub(r'\[BEAT\]', '', text)
+                cleaned_text = cc.convert(cleaned_text)
+                print(cleaned_text)
+                samples_file.write(cleaned_text)
                 samples_file.flush()
             
                 
-    print("=" * 80)
+    # print("=" * 80)
     # close file when finish writing.
     if args.save_samples:
         samples_file.close()
