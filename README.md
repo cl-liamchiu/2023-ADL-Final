@@ -20,3 +20,10 @@ unzip adl_final_data.zip && rm adl_final_data.zip
 
 ## Prefix
 ⚠️ White space are not allowed
+
+
+## Streamlit
+```
+pip install streamlit==1.29.0
+streamlit run app.py
+```

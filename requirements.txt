@@ -4,3 +4,6 @@ transformers==4.35.2
 tensorboard==2.15.2
 jieba==0.42.1
 sentencepiece==0.1.99
+streamlit==1.29.0
+opencc == 1.1.7
+```

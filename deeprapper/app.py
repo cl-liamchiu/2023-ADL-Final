@@ -29,7 +29,7 @@ st.markdown(
 
 option = st.selectbox(
     '你想選擇哪個歌手的風格？',
-    ('Gummy B', 'Leo王', 'MC HotDog'))
+    ('Gummy B', 'Leo王', 'MC HotDog', 'wannasleep', '熊仔', '瘦子', '蛋堡', '頑童', '高爾宣'))
 
 print(option)
 model = GPT2LMHeadModel.from_pretrained(f'model/adl-final model/{option}')
